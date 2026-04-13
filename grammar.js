@@ -73,7 +73,7 @@ module.exports = grammar({
       $.preproc_call
     ),
 
-    // Preprocesser
+    // Preprocessor
 
     preproc_include: $ => seq(
       preprocessor('include'),
@@ -1133,8 +1133,4 @@ function commaSep (rule) {
 
 function commaSep1 (rule) {
   return seq(rule, repeat(seq(',', rule)))
-}
-
-function commaSepTrailing (recurSymbol, rule) {
-  return choice(rule, seq(recurSymbol, ',', rule))
 }

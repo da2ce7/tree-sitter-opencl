@@ -1,7 +1,5 @@
 [
   "sizeof"
-  ; @todo why does "uniform" break highlighting?
-  ; "uniform" ; OpenCL C 3.0.13 reserves this as a keyword, but doesn't seem to use it for anything
   (function_qualifier)
 ] @keyword
 

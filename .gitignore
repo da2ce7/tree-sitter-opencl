@@ -11,3 +11,14 @@ src/node-types.json
 # Build artifacts
 build/
 target/
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
