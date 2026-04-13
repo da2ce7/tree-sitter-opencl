@@ -1,0 +1,36 @@
+================================================================================
+Half vector type declarations
+================================================================================
+
+void f() {
+    half2 a;
+    half3 b;
+    half4 c;
+    half8 d;
+    half16 e;
+}
+
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (function_definition
+    type: (scalar_type)
+    declarator: (function_declarator
+      declarator: (identifier)
+      parameters: (parameter_list))
+    body: (compound_statement
+      (declaration
+        type: (vector_type)
+        declarator: (identifier))
+      (declaration
+        type: (vector_type)
+        declarator: (identifier))
+      (declaration
+        type: (vector_type)
+        declarator: (identifier))
+      (declaration
+        type: (vector_type)
+        declarator: (identifier))
+      (declaration
+        type: (vector_type)
+        declarator: (identifier)))))

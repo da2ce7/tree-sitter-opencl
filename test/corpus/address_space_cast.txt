@@ -1,0 +1,93 @@
+================================================================================
+Cast with __global address space qualifier
+================================================================================
+
+void f(__global uchar *buf) {
+    __global const uchar *p = (__global const uchar *)buf;
+}
+
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (function_definition
+    type: (scalar_type)
+    declarator: (function_declarator
+      declarator: (identifier)
+      parameters: (parameter_list
+        (parameter_declaration
+          (address_space_qualifier)
+          type: (scalar_type)
+          declarator: (pointer_declarator
+            declarator: (identifier)))))
+    body: (compound_statement
+      (declaration
+        (address_space_qualifier)
+        (type_qualifier)
+        type: (scalar_type)
+        declarator: (init_declarator
+          declarator: (pointer_declarator
+            declarator: (identifier))
+          value: (cast_expression
+            type: (type_descriptor
+              (address_space_qualifier)
+              (type_qualifier)
+              type: (scalar_type)
+              declarator: (abstract_pointer_declarator))
+            value: (identifier)))))))
+
+================================================================================
+Cast with __local address space qualifier
+================================================================================
+
+void f() {
+    __local float *p = (__local float *)buf;
+}
+
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (function_definition
+    type: (scalar_type)
+    declarator: (function_declarator
+      declarator: (identifier)
+      parameters: (parameter_list))
+    body: (compound_statement
+      (declaration
+        (address_space_qualifier)
+        type: (scalar_type)
+        declarator: (init_declarator
+          declarator: (pointer_declarator
+            declarator: (identifier))
+          value: (cast_expression
+            type: (type_descriptor
+              (address_space_qualifier)
+              type: (scalar_type)
+              declarator: (abstract_pointer_declarator))
+            value: (identifier)))))))
+
+================================================================================
+Sizeof with address space qualifier
+================================================================================
+
+void f() {
+    int s = sizeof(__global int *);
+}
+
+--------------------------------------------------------------------------------
+
+(translation_unit
+  (function_definition
+    type: (scalar_type)
+    declarator: (function_declarator
+      declarator: (identifier)
+      parameters: (parameter_list))
+    body: (compound_statement
+      (declaration
+        type: (scalar_type)
+        declarator: (init_declarator
+          declarator: (identifier)
+          value: (sizeof_expression
+            type: (type_descriptor
+              (address_space_qualifier)
+              type: (scalar_type)
+              declarator: (abstract_pointer_declarator))))))))

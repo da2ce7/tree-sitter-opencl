@@ -542,6 +542,7 @@ module.exports = grammar({
       ...[2, 3, 4, 8, 16].map(n => `long${n}`  ),
       ...[2, 3, 4, 8, 16].map(n => `ulong${n}` ),
       ...[2, 3, 4, 8, 16].map(n => `float${n}` ),
+      ...[2, 3, 4, 8, 16].map(n => `half${n}`  ),
       ...[2, 3, 4, 8, 16].map(n => `double${n}`)
     )),
 
@@ -634,9 +635,7 @@ module.exports = grammar({
       optional(seq('=', field('value', $._expression)))
     ),
 
-    variadic_parameter: $ => seq(
-        '...',
-    ),
+    variadic_parameter: $ => '...',
 
     parameter_list: $ => seq(
       '(',
@@ -895,9 +894,9 @@ module.exports = grammar({
     )),
 
     type_descriptor: $ => seq(
-      repeat($.type_qualifier),
+      repeat(choice($.type_qualifier, $.address_space_qualifier)),
       field('type', $._type_specifier),
-      repeat($.type_qualifier),
+      repeat(choice($.type_qualifier, $.address_space_qualifier)),
       field('declarator', optional($._abstract_declarator))
     ),
 
