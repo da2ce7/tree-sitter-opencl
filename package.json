@@ -1,15 +1,32 @@
 {
   "name": "tree-sitter-opencl",
-  "version": "1.0.0",
-  "description": "An OpenCL treesitter grammar",
+  "version": "0.0.1",
+  "description": "OpenCL C grammar for tree-sitter",
   "main": "bindings/node",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/da2ce7/tree-sitter-opencl.git"
   },
-  "author": "",
-  "license": "ISC",
+  "homepage": "https://github.com/da2ce7/tree-sitter-opencl#readme",
+  "bugs": {
+    "url": "https://github.com/da2ce7/tree-sitter-opencl/issues"
+  },
+  "keywords": [
+    "tree-sitter",
+    "parser",
+    "opencl",
+    "grammar"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "generate": "tree-sitter generate",
+    "parse": "tree-sitter parse",
+    "test": "tree-sitter test"
+  },
   "dependencies": {
-    "nan": "^2.17.0",
+    "nan": "^2.17.0"
+  },
+  "devDependencies": {
     "tree-sitter-cli": "^0.20.8"
   },
   "tree-sitter": [
@@ -17,7 +34,15 @@
       "scope": "source.cl",
       "file-types": [
         "cl"
-      ]
+      ],
+      "highlights": "queries/highlights.scm"
     }
+  ],
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
   ]
 }
